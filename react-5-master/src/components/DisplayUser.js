@@ -25,7 +25,8 @@ const DisplayUser = () => {
         console.error(err.message);
       });
 
-    fetch("https://localhost:44310/api/User/UserDetails/" + id)
+    fetch("https://localhost:44310/api/User/UserDetails/" + id,
+    {headers:{ "Authorization": `Bearer ${localStorage.getItem('token')}`}})
       .then((res) => {
         return res.json();
       })
