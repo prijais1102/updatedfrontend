@@ -95,17 +95,20 @@ const DisplayUser = () => {
                       </tr>
                     </tbody>
                   </table>
-                  <button
+                 
+                 
+                  {/* <div className="clearfix"></div> */}
+                </div>
+              </div>
+            </div>
+            <div>
+            <button
                     type="button"
                     className="btn btn-primary"
                     onClick={Back}
                   >
                     Back
                   </button>
-                 
-                  {/* <div className="clearfix"></div> */}
-                </div>
-              </div>
             </div>
           </>
         }

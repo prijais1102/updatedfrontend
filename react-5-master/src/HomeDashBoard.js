@@ -19,9 +19,9 @@ const HomeDashBoard = () => {
      {
                 role  && (
       <nav
-        className="navbar navbar-expand-lg navbar-light bg-light text-dark "
+        className="navbar navbar-expand-lg navbar-light bg-dark text-white"
         style={{
-          marginLeft: "10px",
+          paddingLeft: "10px",
           backgroundColor: "#B45A5A",
           height: "auto",
         }}

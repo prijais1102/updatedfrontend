@@ -126,7 +126,7 @@ const cancel=()=>{
   return (
     <>
        
-      <div className="container h-50 d-flex justify-content-center  ">
+      <div className="container containerborder mt-5 h-50 d-flex justify-content-center  ">
         <div className=" bg-light ">
           <h3 className=" text-center">Add User</h3>
           <Formik

@@ -28,7 +28,7 @@ const Logout = () => {
                 role  && (
 
                 <div
-                className={`d-flex flex-column bg-light text-dark p-2  ${
+                className={`d-flex flex-column bg-dark text-white p-2  ${
                   isSidebarOpen ? "expanded" : "collapsed"
                 }`}
                 style={{ minHeight: "87vh" }}
@@ -36,7 +36,7 @@ const Logout = () => {
                 <div className="text-center mb-4">
                   <FontAwesomeIcon
                     icon={faBars}
-                    className="text-dark"
+                    className="text-white"
                     onClick={toggleSidebar}
                     style={{ cursor: "pointer" }}
                     data-toggle="collapse" 
@@ -50,26 +50,26 @@ const Logout = () => {
                 <div className={`collapse ${isSidebarOpen ? "show" : ""}`} id="sidebarCollapse">
                   <ul className="nav flex-column">
                   <li className="nav-item">
-                  <Link to='/home' className="nav-link active text-dark" >
+                  <Link to='/home' className="nav-link active text-white" >
                         Home
                       </Link>
                     </li>
                     {(role === "Admin") && (
                   <li className="nav-item">
-                    <Link to='/user/create' className="nav-link active text-dark" >
+                    <Link to='/user/create' className="nav-link active text-white" >
                         Add Users
                     </Link>
-                    <Link to='/admindashboard' className="nav-link active text-dark" >
+                    <Link to='/admindashboard' className="nav-link active text-white" >
                         Manage Users
                     </Link>
                     </li>
                     )}
                      {(role === "Manager") && (
                     <li className="nav-item">
-                      <Link to='/managerusers' className="nav-link active text-dark" >
+                      <Link to='/managerusers' className="nav-link active text-white" >
                         All Users
                       </Link>
-                      <Link to='/managerrequests' className="nav-link active text-dark" >
+                      <Link to='/managerrequests' className="nav-link active text-white" >
                         Requests
                       </Link>
                     </li>
@@ -77,10 +77,10 @@ const Logout = () => {
                     {(role === "Employee") && (
                     
                     <li className="nav-item">
-                      <Link to='/requestform' className="nav-link active text-dark" >
+                      <Link to='/requestform' className="nav-link active text-white" >
                         Raise a request
                       </Link>
-                      <Link to='previousrequests' className="nav-link active text-dark" >
+                      <Link to='previousrequests' className="nav-link active text-white" >
                         Previous Requests
                       </Link>
                     </li>
@@ -88,13 +88,13 @@ const Logout = () => {
                     )}
                     {(role === "HRAdmin") && (
                     <li className="nav-item">
-                      <Link to='approvedrequests' className="nav-link active text-dark" >
+                      <Link to='approvedrequests' className="nav-link active text-white" >
                         Approved Requests
                       </Link>
                     </li>
                     )}
                     <li className="nav-item">
-                      <Link  to='/' onClick={Logout} className="nav-link active text-dark" >
+                      <Link  to='/' onClick={Logout} className="nav-link active text-white" >
                         Logout
                       </Link>
                     </li>

@@ -74,7 +74,7 @@ const AdminDashboard = ()=>{
   return (
     role1==='Admin'?
     <>
-      <div className="container w-75 h-50">
+      <div className="container mt-4 w-75 h-50">
         <div>
           <div>
             <h2 className="text-center">Employees</h2>
