@@ -8,7 +8,7 @@ import { Link, useNavigate } from "react-router-dom";
 
 const Sidebar = () => {
   const [isSidebarOpen, setSidebarOpen] = useState(false);
-  const token = localStorage.getItem('token')
+  // const token = localStorage.getItem('token')
   const navigate=useNavigate();
   const toggleSidebar = () => {
     setSidebarOpen(!isSidebarOpen);

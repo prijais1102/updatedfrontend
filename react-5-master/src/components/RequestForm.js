@@ -1,11 +1,11 @@
 import React from "react";
 import { useState, useEffect } from "react";
 import { Formik, Form, Field, ErrorMessage } from "formik";
-import * as Yup from "yup";
+// import * as Yup from "yup";
 import styles from "./RequestForm.module.css";
 import axios from "axios";
-
-function Request() {
+ 
+function RequestForm() {
   const [projects, setProjects] = useState([]);
   const [bookingTypes, setBookingTypes] = useState([]);
   const [mealTypes, setMealTypes] = useState([]);
@@ -18,7 +18,7 @@ function Request() {
   const userId = localStorage.getItem("userId");
   const departmentName = localStorage.getItem("departmentName");
   const departmentId = localStorage.getItem("departmentId");
-
+ 
   //apis to fetch data for dropdown
   useEffect(() => {
     //projects
@@ -94,7 +94,7 @@ function Request() {
       .then((data) => console.log(data))
       .catch((error) => console.error(error));
   fetch("https://localhost:44310/api/User/GetAllManagers")
-  .then(async (response) => 
+  .then(async (response) =>
   {
     var managers1= await response.json();
     console.log(managers1);
@@ -103,8 +103,8 @@ function Request() {
   .then((data) => console.log("data"))
   .catch((error) => console.error(error))
 },[]);
-
-
+ 
+ 
   const initialValues = {
     userId:"",
     projectId:"",
@@ -124,8 +124,8 @@ function Request() {
     flightDate:null,
     passportNo: "",
    };
-
-
+ 
+ 
  
   const handleSubmit = async (values) => {
     values.userId=userId;
@@ -143,22 +143,22 @@ function Request() {
     try {
       const response = await axios.post(
         "https://localhost:44310/api/Request/AddRequest",
-        
-        
+       
+       
           values,
-        
+       
        
       );
       console.log(response.json);
-        
+       
    
     } catch (error) {
       console.error(error);
-
+ 
     }
-    
+   
   };
-
+ 
   return (
     <>
       <div className={styles.formContainer}>
@@ -171,33 +171,10 @@ function Request() {
         >
           {({ values }) => (
             <Form>
+              {/* 1 row */}
+ 
               <div className={styles.formRow}>
-                {/* Employee ID */}
-                {/* <div className={styles.formColumn}>
-                  <label className={styles.inputField}>
-                    <p className={styles.inputName}>Employee ID :</p>
-                    <Field type="text" name="employeeId" />
-                    <ErrorMessage
-                      name="employeeId"
-                      component="div"
-                      className="invalid-feedback"
-                    />
-                  </label>
-                </div> */}
-
-                {/* Employee Name */}
-                {/* <div className={styles.formColumn}>
-                  <label className={styles.inputField}>
-                    <p className={styles.inputName}>Employee Name :</p>
-                    <Field type="text" name="employeeName" />
-                    <ErrorMessage
-                      name="employeeName"
-                      component="div"
-                      className="invalid-feedback"
-                    />
-                  </label>
-                </div> */}
-
+ 
                 {/* Project Name */}
                 <div className={styles.formColumn}>
                   <label>
@@ -222,9 +199,7 @@ function Request() {
                     />
                   </label>
                 </div>
-              </div>
-
-              <div className={styles.formRow}>
+               
                 {/* Department Name  */}
                 <div className={styles.formColumn}>
                   <label className={styles.inputField}>
@@ -237,7 +212,7 @@ function Request() {
                     />
                   </label>
                 </div>
-                <div className={styles.formRow}>
+               
                 {/* Manager Name  */}
                 <div className={styles.formColumn}>
                   <label className={styles.inputField}>
@@ -252,7 +227,7 @@ function Request() {
                         </option>
                       ))}
                       </Field>
-                    
+                   
                     <ErrorMessage
                       name="managerId"
                       component="div"
@@ -260,8 +235,8 @@ function Request() {
                     />
                   </label>
                 </div>
-                </div>
-
+             
+ 
                 {/* Reason for Travelling */}
                 <div className={styles.formColumn}>
                   <label className={styles.inputField}>
@@ -276,9 +251,9 @@ function Request() {
                 </div>
                 {/* Aadhar Card */}
                 <div className={styles.formColumn}>
-                  <label>
+                  <label className={styles.inputField}>
                     <p className={styles.inputName}>Aadhar Card Number:</p>
-
+ 
                     <Field
                       type="text"
                       name="aadharNo"
@@ -291,7 +266,7 @@ function Request() {
                     />
                   </label>
                 </div>
-
+ 
                 {/* Type of Booking */}
                 <div className={styles.formColumn}>
                   <label>
@@ -316,7 +291,7 @@ function Request() {
                   </label>
                 </div>
               </div>
-
+ 
               {/* Conditional rendering based on bookingType */}
               {(values.bookingTypeId === "1" || values.bookingTypeId === "3") && (
                 <div className={styles.formRow}>
@@ -386,7 +361,7 @@ function Request() {
                       />
                     </label>
                   </div>
-
+ 
                   {/* To */}
                   <div className={styles.formColumn}>
                     <label>
@@ -411,11 +386,11 @@ function Request() {
                     </label>
                   </div>
                 </div>
-
-                  
+ 
+                 
               )}
-
-
+ 
+ 
               {/* Conditional rendering based on flightType */}
               {values.flightTypeId === "2" && (
                 <div className={styles.formRow}>
@@ -442,7 +417,7 @@ function Request() {
                       />
                     </label>
                   </div>
-
+ 
                   {/* To */}
                   <div className={styles.formColumn}>
                     <label>
@@ -468,7 +443,7 @@ function Request() {
                   </div>
                   {/* Passport No. */}
                   <div className={styles.formColumn}>
-                    <label htmlFor="">Passport Number:</label>
+                    <label className={styles.inputField} >Passport Number:</label>
                     <Field
                       type="text"
                       name="passportNo"
@@ -480,7 +455,7 @@ function Request() {
                       className="invalid-feedback"
                     />
                   </div>
-
+ 
                   {/* Upload Passport */}
                   <div className={styles.formColumn}>
                     <label>Upload Passport</label>
@@ -495,7 +470,7 @@ function Request() {
                       className="invalid-feedback"
                     />
                   </div>
-
+ 
                   {/* Upload Visa */}
                   <div className={styles.formColumn}>
                     <label>Upload Visa</label>
@@ -512,7 +487,7 @@ function Request() {
                   </div>
                 </div>
               )}
-
+ 
               {/* Conditional rendering based on bookingType */}
               {(values.bookingTypeId === "2" || values.bookingTypeId === "3") && (
                 <div className={styles.formRow}>
@@ -530,7 +505,7 @@ function Request() {
                       className="invalid-feedback"
                     />
                   </div>
-
+ 
                   {/* Number of Days */}
                   <div className={styles.formColumn}>
                     <label>Number of Days</label>
@@ -545,7 +520,7 @@ function Request() {
                       className="invalid-feedback"
                     />
                   </div>
-
+ 
                   {/* Meal Required */}
                   <div className={styles.formColumn}>
                     <label htmlFor="">
@@ -569,7 +544,7 @@ function Request() {
                       />
                     </label>
                   </div>
-
+ 
                   {/* Meal Preferences */}
                   <div className={styles.formColumn}>
                     <label htmlFor="">
@@ -593,9 +568,9 @@ function Request() {
                       />
                     </label>
                   </div>
-
+ 
                   {/* Location */}
-
+ 
                   <div className={styles.formColumn}>
                     <label>
                       Hotel Location
@@ -620,7 +595,7 @@ function Request() {
                   </div>
                 </div>
               )}
-
+ 
               {/* Submit Button */}
               <div className={styles.formRow}>
                 <div className={styles.formColumn}>
@@ -634,4 +609,4 @@ function Request() {
     </>
   );
 }
-export default Request;
+export default RequestForm;
